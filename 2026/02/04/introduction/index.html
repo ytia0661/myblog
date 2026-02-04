@@ -1,228 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>introduction | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="欢迎来到Sugarpie.Top早上好，这里是Sugarpie的个人博客，建于2026年1月末，主要用于存放Sugarpie的随笔与一次文学接龙。 自2021年起，Sugarpie便开始在他的QQ空间发一些莫名其妙的话，竟然也真有些朋友喜欢；本站收录了Sugarpie历来发的QQ说说，并将与Sugarpie的空间内容同步更新。 同样自2021年起，Sugarpie与他所加入的如月文学社成员们一起开">
-<meta property="og:type" content="article">
-<meta property="og:title" content="introduction">
-<meta property="og:url" content="https://sugarpie.top/2026/02/04/introduction/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="欢迎来到Sugarpie.Top早上好，这里是Sugarpie的个人博客，建于2026年1月末，主要用于存放Sugarpie的随笔与一次文学接龙。 自2021年起，Sugarpie便开始在他的QQ空间发一些莫名其妙的话，竟然也真有些朋友喜欢；本站收录了Sugarpie历来发的QQ说说，并将与Sugarpie的空间内容同步更新。 同样自2021年起，Sugarpie与他所加入的如月文学社成员们一起开">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2026-02-04T02:36:00.000Z">
-<meta property="article:modified_time" content="2026-02-04T03:17:27.028Z">
-<meta property="article:author" content="Sugarpie">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+extends includes/layout.pug
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+block content
+  #post
+    if top_img === false
+      include includes/header/post-info.pug
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+    article#article-container.container.post-content
+      if theme.noticeOutdate.enable && page.noticeOutdate !== false
+        include includes/post/outdate-notice.pug
+      else
+        !=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (page.tags.length > 0 && theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      include includes/third-party/share/index.pug
 
-<meta name="generator" content="Hexo 8.1.1"></head>
+    if theme.reward.enable && theme.reward.QR_code
+      !=partial('includes/post/reward', {}, {cache: true})
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sugarpie.top"></form>
-      </div>
-    </div>
-  </div>
-</header>
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
 
-      <div class="outer">
-        <section id="main"><article id="post-introduction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/04/introduction/" class="article-date">
-  <time class="dt-published" datetime="2026-02-04T02:36:00.000Z" itemprop="datePublished">2026-02-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      introduction
-    </h1>
-  
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="欢迎来到Sugarpie-Top"><a href="#欢迎来到Sugarpie-Top" class="headerlink" title="欢迎来到Sugarpie.Top"></a>欢迎来到Sugarpie.Top</h1><p>早上好，这里是Sugarpie的个人博客，建于2026年1月末，主要用于存放Sugarpie的随笔与一次文学接龙。</p>
-<p>自2021年起，Sugarpie便开始在他的QQ空间发一些莫名其妙的话，竟然也真有些朋友喜欢；本站收录了Sugarpie历来发的QQ说说，并将与Sugarpie的空间内容同步更新。</p>
-<p>同样自2021年起，Sugarpie与他所加入的如月文学社成员们一起开始撰写接龙《约翰的奇妙冒险》。该作品于2025年完结时，字数已达20万字有余，是Sugarpie<strong>最满意的作品</strong>，欢迎能浏览本博客的朋友观看。</p>
-<h1 id="社交媒体"><a href="#社交媒体" class="headerlink" title="社交媒体"></a>社交媒体</h1><ul>
-<li><strong>Steam</strong>：<a target="_blank" rel="noopener" href="https://steamcommunity.com/profiles/76561198854251477">Sugarpie的游戏账号，最近在玩以撒的结合与小丑牌</a>  </li>
-<li><strong>Steam</strong>：<a target="_blank" rel="noopener" href="https://steamcommunity.com/profiles/76561199148939919/">绝对不是本人，而是朋友Nova的游戏账号。Nova在尝试记录他玩过的各类游戏，并在撰写测评与指南</a> </li>
-<li><strong>Bangumi</strong>：<a target="_blank" rel="noopener" href="https://bangumi.tv/user/723112">于2026才学会使用的bangumi，将会记录Sugarpie看过的动画片，漫画与轻小说</a>  </li>
-<li><strong>GitHub</strong>：<a target="_blank" rel="noopener" href="https://github.com/ytia0661">完全没有repo的纯粹github账号，主要用途是更新本博客，真是凄惨</a>  </li>
-<li><strong>网易云音乐</strong>：<a target="_blank" rel="noopener" href="https://music.163.com/#/user/home?id=1307838430">最近有朋友向我寻找听歌推荐，但我向他推荐了自我肯定感爆上</a>  </li>
-<li><strong>Bilibili</strong>：<a target="_blank" rel="noopener" href="https://space.bilibili.com/38291246?spm_id_from=333.1007.0.0">只有中二节奏B30作为视频的自用账号，如果不能做到与我分享视频时使用链接而不是小程序的话，还不如直接在b站@我</a>  </li>
-<li><strong>QQ空间</strong>：<a target="_blank" rel="noopener" href="https://user.qzone.qq.com/2719938385/main">Sugarpie的QQ空间，其实借用了朋友Nova的QQ。Sugarpie觉得自己的QQ加了太多人，只把足够亲近的好友加进了Nova的账号</a></li>
-</ul>
-<h1 id="友站链接"><a href="#友站链接" class="headerlink" title="友站链接"></a>友站链接</h1><ul>
-<li><strong>Miracbai</strong>：<a target="_blank" rel="noopener" href="https://miracbai.cn/">朋友Mirac的个人博客，曾用于如月文学社的活动据点</a>  </li>
-<li><strong>ZSSPACE</strong>：<a target="_blank" rel="noopener" href="https://zsspace.top/">朋友Zenith的个人博客，分享了他的现实世界充实生活</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sugarpie.top/2026/02/04/introduction/" data-id="cuidUOki1BMlzhKf9sY1zGcXq" data-title="introduction" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2026/01/29/20260129/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">20260129</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/02/04/introduction/">introduction</a>
-          </li>
-        
-          <li>
-            <a href="/2026/01/29/20260129/">20260129</a>
-          </li>
-        
-          <li>
-            <a href="/2026/01/29/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 Sugarpie<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    if page.comments !== false && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
